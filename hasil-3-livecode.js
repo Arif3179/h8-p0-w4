@@ -9,12 +9,12 @@ TUKAR KOLOM BARIS
 [EXAMPLE]
   input: 
     [
-      [4, 6, 7, 10],  
-      [9, 2, 1, 3],   
+      [4, 6, 7, 10],
+      [9, 2, 1, 3],
       [1, 1, 2, 2],
       [4, 4, 4, 4],
       [5, 6, 7, 8]
-    ] 
+    ]
   output:
     [ 
       [ 4, 9, 1, 4, 5 ],
@@ -26,60 +26,48 @@ TUKAR KOLOM BARIS
 - Hanya boleh menggunakan fungsi array .push dan .length
 */
 function tukarKolomBaris(arr) {
-  if(arr.length == 0){
-    return "Invalid input parameter";
-  }
-  var tempArray = []
-  var hasil = []
-  for(i=0;i<arr.length;i++){
-    for(j=0;j<arr[i].length;j++){
-      tempArray.push(arr[i][j]);
+    var output = []
+    if(arr.length == 0){
+        return "Invalid input parameter"
     }
-  } 
-  var panjang = tempArray.length/arr.length
-  var arrGabungan = tempArray
-  for (var i = 0; i < panjang; i++){
-    var temp2 = []
-    for (var j = i; j < arrGabungan.length; j+= panjang) {
-      temp2.push(arrGabungan[j])
-    }
-    hasil.push(temp2)
+    for(var j=0;j<arr[0].length;j++){
+        output.push([]);
+        for(var i=0;i<arr.length;i++){
+            output[j].push(arr[i][j])
+        }
+    } return output
   }
-  return hasil
-} 
-
-
-
-console.log(tukarKolomBaris([
-  [4, 6, 7, 10],
-  [9, 2, 1, 3],
-  [1, 1, 2, 2],
-  [4, 4, 4, 4],
-  [5, 6, 7, 8]
-]));
-/* output : 
-[ 
-  [ 4, 9, 1, 4, 5 ],
-  [ 6, 2, 1, 4, 6 ],
-  [ 7, 1, 2, 4, 7 ],
-  [ 10, 3, 2, 4, 8 ] 
-]
-*/
-console.log(tukarKolomBaris([
-  [5, 3, 1, 1],
-  [2, 1, 4, 1],
-  [0, 2, 4, 1]
-]));
-
-/* output :
+  
+  console.log(tukarKolomBaris([
+    [4, 6, 7, 10],
+    [9, 2, 1, 3],
+    [1, 1, 2, 2],
+    [4, 4, 4, 4],
+    [5, 6, 7, 8]
+  ]));
+  /* output : 
   [ 
-    [ 5, 2, 0 ], 
-    [ 3, 1, 2 ], 
-    [ 1, 4, 4 ], 
-    [ 1, 1, 1 ] 
+    [ 4, 9, 1, 4, 5 ],
+    [ 6, 2, 1, 4, 6 ],
+    [ 7, 1, 2, 4, 7 ],
+    [ 10, 3, 2, 4, 8 ] 
   ]
-*/
-console.log(tukarKolomBaris([]));
- //Invalid input parameter
-console.log(tukarKolomBaris(''));
- //Invalid input parameter
+  */
+  console.log(tukarKolomBaris([
+    [5, 3, 1, 1],
+    [2, 1, 4, 1],
+    [0, 2, 4, 1]
+  ]));
+  /* output :
+    [ 
+      [ 5, 2, 0 ], 
+      [ 3, 1, 2 ], 
+      [ 1, 4, 4 ], 
+      [ 1, 1, 1 ] 
+    ]
+  */
+  console.log(tukarKolomBaris([]));
+  // Invalid input parameter
+  console.log(tukarKolomBaris(''));
+  // Invalid input parameter
+  
