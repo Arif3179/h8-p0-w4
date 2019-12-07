@@ -1,29 +1,28 @@
 function cariModus(arr) {
-  var output = []
+  let output = []
   for(i=0;i<arr.length;i++){
-    var angkaBaru = true;
+    let unik = true
     for(j=0;j<output.length;j++){
-      if( arr[i] == output[j][0]){
+      if(arr[i]== output[j][0]){
         output[j][1]++
-        angkaBaru = false
+        unik = false
       }
-    } 
-    if(angkaBaru){
+    } if(unik){
       output.push([arr[i],1])
     }
-  } if(output.length == arr.length || output.length == 1){
-    return -1
-  }
-  var pembanding = 0;
-  var hasilIndex = 0;
+  } 
+  if(output.length ==1 || output.length == arr.length){
+    return -1;
+  } 
+  let pembanding = 0
   for(k=0;k<output.length;k++){
-    if(output[k][1] > pembanding){
-      pembanding = output[k][1]
-      hasilIndex = output[k][0]
-     } 
+   if(output[k][1] > pembanding){
+     pembanding = output[k][1]
+     hasilFinal = output[k][0]
    }
- return hasilIndex
-}
+   } return hasilFinal
+  }
+
   // TEST CASES
 console.log(cariModus([10, 4, 5, 2, 4])); // 4
 console.log(cariModus([5, 10, 10, 6, 5])); // 5
